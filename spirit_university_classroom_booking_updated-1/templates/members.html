@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block title %}Members · Spirit University{% endblock %}{% block content %}
+<div class="page-heading split"><div><span class="eyebrow">UNIVERSITY DIRECTORY</span><h1>Members.</h1><p>Manage student and staff accounts.</p></div><a class="btn primary" href="{{ url_for('bulk_import') }}">＋ Bulk add students</a></div>
+<div class="panel table-wrap"><table><thead><tr><th>Name</th><th>Username / PRN</th><th>Role</th><th>Created</th></tr></thead><tbody>{% for u in users %}<tr><td>{{ u.name }}</td><td>{{ u.username }}</td><td>{{ u.role }}</td><td>{{ u.created_at }}</td></tr>{% endfor %}</tbody></table></div>{% endblock %}

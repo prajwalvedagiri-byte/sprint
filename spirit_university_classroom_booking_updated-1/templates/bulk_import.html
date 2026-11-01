@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Bulk import · Spirit University{% endblock %}{% block content %}
+<div class="page-heading"><span class="eyebrow">DEAN / SUPER ADMIN</span><h1>Bulk add students.</h1><p>Import many student accounts in one upload.</p></div>
+<div class="panel import-panel"><div class="upload-icon">↑</div><h2>Upload student CSV</h2><p class="muted">Use one row per student. Duplicate PRNs are skipped.</p><a class="text-link" href="{{ url_for('download_template') }}">Download CSV template ↓</a>
+<form method="post" enctype="multipart/form-data"><label>Choose CSV file</label><input type="file" name="file" accept=".csv" required><button class="btn primary">Import students →</button></form>
+<div class="notice"><b>Required columns:</b> name, prn, dob<br>DOB format: DDMMYYYY. The DOB becomes the initial password; students must change it after first login.</div></div>{% endblock %}

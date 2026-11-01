@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Book {{ room.name }} · Spirit University{% endblock %}{% block content %}
+<div class="page-heading"><span class="eyebrow">ROOM RESERVATION</span><h1>Book a space.</h1><p>Choose a date and time for your reservation.</p></div>
+<div class="form-layout"><img class="booking-photo" src="{{ url_for('static',filename=room.image) }}"><form class="panel form-panel" method="post"><span class="tag">{{ room.room_type }}</span><h2>{{ room.name }}</h2><p class="muted">{{ room.capacity }} seats · {{ room.building }}</p>
+<label>Date</label><input type="date" name="booking_date" required>
+<div class="two-col"><div><label>Start time</label><input type="time" name="start_time" required></div><div><label>End time</label><input type="time" name="end_time" required></div></div>
+<label>Purpose</label><textarea name="purpose" rows="3" placeholder="Class, workshop, meeting..." required></textarea>
+{% if room.restricted %}<p class="notice">This space requires administrator approval.</p>{% endif %}<button class="btn primary full">Submit booking request →</button></form></div>{% endblock %}
